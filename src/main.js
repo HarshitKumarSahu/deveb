@@ -70,7 +70,12 @@ tl.to(mesh.position, {
   value : 1,
   ease : 'power2.inOut'
 }, "first")
-
+.to(".landing h1", {
+  opacity:0,
+}, "first")
+.to(".who", {
+  opacity:1,
+})
 
 // Resize handler
 const handleResize = () => {
