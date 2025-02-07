@@ -2,6 +2,10 @@ import * as THREE from 'three';
 // import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import vertex from '../shaders/vertex.glsl';
 import fragment from '../shaders/fragment.glsl';
+import gsap from "gsap";
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 // Setup
 const canvas = document.querySelector('canvas');
@@ -36,7 +40,8 @@ const material = new THREE.ShaderMaterial({
   side : THREE.DoubleSide,
   // wireframe : true,
   uniforms: {
-    uTime: { value: 0 }
+    uTime : { value : 0 },
+    uColorChange : { value : 0 }
   }
 });
 
@@ -44,6 +49,28 @@ const material = new THREE.ShaderMaterial({
 const mesh = new THREE.Mesh(geometry, material);
 mesh.position.y = -3.75; 
 scene.add(mesh);
+
+// gsap
+let tl = gsap.timeline({
+  scrollTrigger : {
+    trigger : ".landing",
+    start : " top top",
+    end : "bottom center",
+    scrub : 2,
+    // markers : true
+  }
+})
+
+tl.to(mesh.position, {
+  y : 0,
+  z : -5,
+  ease : 'power2.inOut'
+}, "first")
+.to(material.uniforms.uColorChange, {
+  value : 1,
+  ease : 'power2.inOut'
+}, "first")
+
 
 // Resize handler
 const handleResize = () => {
