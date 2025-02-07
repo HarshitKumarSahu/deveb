@@ -50,7 +50,7 @@ const mesh = new THREE.Mesh(geometry, material);
 mesh.position.y = -3.75; 
 scene.add(mesh);
 
-// gsap
+
 let tl = gsap.timeline({
   scrollTrigger : {
     trigger : ".landing",
