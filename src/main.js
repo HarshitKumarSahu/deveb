@@ -77,6 +77,23 @@ tl.to(mesh.position, {
   opacity:1,
 })
 
+let btn = document.querySelector(".who button");
+btn.addEventListener("mouseenter", ()=> {
+  gsap.to(btn, {
+    background : "#000",
+    color : "#f8f8f8",
+    duration : 0.6
+  })
+})
+btn.addEventListener("mouseleave", ()=> {
+  gsap.to(btn, {
+    background : "transparent",
+    color : "#000",
+    duration : 0.6
+  })
+})
+
+
 // Resize handler
 const handleResize = () => {
   const width = window.innerWidth;
