@@ -40,3 +40,47 @@ a, p {
 a {
   cursor: pointer;
 }
+
+
+/* 
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #111;
+} */
+
+.button {
+    position: relative;
+    overflow: hidden;
+    width: 6.5rem;
+    height: 35px;
+    background: #3298FE;
+    border: none;
+    border-radius: 50px;
+    /* font-size: 18px; */
+    /* font-weight: bold; */
+    cursor: pointer;
+    color: #fff;
+    /* text-transform: uppercase; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.button span {
+    display: block;
+    white-space: nowrap;
+    position: absolute;
+    animation: scrollText 8s linear infinite;
+}
+
+@keyframes scrollText {
+    from {
+        transform: translateX(40%);
+    }
+    to {
+        transform: translateX(-40%);
+    }
+}
