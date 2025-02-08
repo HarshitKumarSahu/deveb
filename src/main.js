@@ -78,6 +78,11 @@ tl.to(mesh.position, {
   opacity:1,
   ease: "power2.out"
 })
+.to(".navA" , {
+  opacity:0,
+  ease: "power2.out"
+})
+
 
 let btn = document.querySelector(".who button");
 btn.addEventListener("mouseenter", ()=> {
@@ -103,6 +108,31 @@ gsap.to(material.uniforms.uColorChange, {
   yoyo: true, // Go back and forth
   ease: "power2.inOut",
 });
+
+//nav
+const menu = document.querySelector(".menupg");
+const menuBar = document.querySelector(".cross");
+let isOpen = false;
+
+// gsap.to(menu , {
+//   x: "100vw"
+// })
+
+menuBar.addEventListener("click", () => {
+    if (!isOpen) {
+        gsap.to(".bar1", { y: 6, rotate: 45, duration: 0.3 });
+        gsap.to(".bar2", { y: -6, rotate: -45, duration: 0.3 });
+        gsap.to(menu , {x: 0});
+        gsap.to(".navA" , {display : "none"});
+    } else {
+        gsap.to(".bar1", { y: 0, rotate: 0, duration: 0.3 });
+        gsap.to(".bar2", { y: 0, rotate: 0, duration: 0.3 });
+        gsap.to(menu , {x: "100vw", ease: "linear.inOut",});
+        gsap.to(".navA" , {display : "flex"})
+    }
+    isOpen = !isOpen;
+});
+
 
 // Resize handler
 const handleResize = () => {

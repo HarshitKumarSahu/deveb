@@ -8,21 +8,50 @@
 </head>
 <body>
   <div class="main w-full">
-    <nav class="fixed flex z-10 justify-between items-center top-0 left-0 w-full py-5 px-8">
+    <nav class="fixed flex z-[99] justify-between items-center top-0 left-0 w-full py-4 px-8">
       <h3 class="tracking-tight font-bold">deveb.co</h3>
       <div class="flex justify-between items-center gap-8 text-zinc-400">
-        <div class="flex justify-between items-center gap-8 text-zinc-400">
+        <div class="navA flex justify-between items-center gap-8 text-zinc-500">
           <a class="text-sm" href="#">Service</a>
           <a class="text-sm" href="#">Project</a>
           <a class="text-sm" href="#">About</a>
         </div>
         <button class="button"><span class="text-sm" >Get a quote &nbsp; &nbsp; &nbsp; &nbsp; Get a quote &nbsp; &nbsp; &nbsp; &nbsp; Get a quote &nbsp; &nbsp; &nbsp; &nbsp; Get a quote</span></button>
-        <div class="cross relative  w-[2rem] h-[1rem]">
-          <div class="bar1 absolute top-0 left-0 w-full h-[4px] rounded-full bg-blue-700"></div>
-          <div class="bar2 absolute bottom-0 left-0 w-full h-[4px] rounded-full bg-blue-700"></div>
+        <div class="cross relative z-[999] w-[1.75rem] h-[1rem]">
+          <div class="bar1 absolute top-0 left-0 w-full h-[3.5px] rounded-full bg-black"></div>
+          <div class="bar2 absolute bottom-0 left-0 w-full h-[3.5px] rounded-full bg-black"></div>
         </div>
       </div>
     </nav>
+    <div class="menupg fixed z-[15] top-0 left-0 w-full h-screen bg-[#f8f8f8] py-52 px-80 flex justify-items-start items-center gap-36 translate-x-[100vw]">
+      <div class="cont-column1 flex flex-col">
+        <div class="touch mb-12">
+          <h4 class="text-xs">Get in touch</h4>
+          <a href="" class="text-sm text-zinc-600">info@deveb.co</a>
+        </div>
+        <div class="social flex flex-col">
+          <h4 class="text-xs mb-1">Social</h4>
+          <a href="" class="text-sm text-zinc-600 mb-1.5">Instagram</a>
+          <a href="" class="text-sm text-zinc-600 mb-1.5">Dribbble</a>
+          <a href="" class="text-sm text-zinc-600 mb-1.5">Behance</a>
+          <a href="" class="text-sm text-zinc-600 mb-1.5">Linkedin</a>
+          <a href="" class="text-sm text-zinc-600 mb-1.5">Github</a>
+          <a href="" class="text-sm text-zinc-600 mb-1.5">Twitter</a>
+        </div>
+      </div>
+      <div class="cont-column2">
+        <div class="menu  w-[500px] h-[300px] flex flex-col flex-wrap">
+          <h4 class="text-xs mb-1.5">Menu</h4>
+          <h1 class="text-5xl text-zinc-600 mb-5 ">Services</h1>
+          <h1 class="text-5xl text-zinc-600 mb-5 ">Projects</h1>
+          <h1 class="text-5xl text-zinc-600 mb-5 ">About</h1>
+          <h1 class="text-5xl text-zinc-600 mb-5 ">Contacts</h1>
+          <h1 class="text-5xl text-zinc-600 mt-5.5 mb-5 ">Products</h1>
+          <h1 class="text-5xl text-zinc-600 mb-5 ">Blogs</h1>
+        </div>
+      </div>
+      <!-- <div class="cont-column3"></div> -->
+    </div>
     <div class="landing w-full h-[200vh]">
       <div class="w-full h-screen sticky top-0 left-0">      
         <h1 class="absolute font-medium top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap text-6xl"><span>Design</span> . <span>Development</span> . <span>Deploy</span></h1>
@@ -36,7 +65,7 @@
         <canvas class="pointer-events-none z-[-1]"></canvas>
       </div>
     </div>
-    <div class="page2 w-full h-screen bg-transparent"></div>
+    <div class="page2 w-full h-screen bg-red-500"></div>
   </div>
 
   <script type="module" src="./src/main.js"></script>
