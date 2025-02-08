@@ -62,20 +62,48 @@ void main() {
     vec4 color1 = vec4(1.0, 0.68, 0.92, 1.0);
     vec4 color2 = vec4(1.0, 0.7608, 0.9529, 1.0);
 
-    //yellow
-    // vec4 color1 = vec4(1.0, 0.851, 0.6902, 1.0);
-    // vec4 color2 = vec4(1.0, 0.9059, 0.7922, 1.0);
+    //blue
+    vec4 color3 = vec4(0.5529, 0.8431, 1.0, 1.0);
+    vec4 color4 = vec4(0.8039, 0.9294, 1.0, 1.0);
 
-    //sir
-    vec4 color3 = vec4(1.0, 0.9216, 0.8588, 1.0);
-    vec4 color4 = vec4(1.0, 0.9686, 0.9451, 1.0);
+    //yellow
+    vec4 color5 = vec4(1.0, 0.851, 0.6902, 1.0);
+    vec4 color6 = vec4(1.0, 0.9059, 0.7922, 1.0);
+
+    //purple
+    vec4 color7 = vec4(0.702, 0.5059, 0.9804, 1.0);
+    vec4 color8 = vec4(0.8039, 0.6667, 1.0, 1.0);
+
+    //last
+    vec4 color9 = vec4(1.0, 0.9216, 0.8588, 1.0);
+    vec4 color10 = vec4(1.0, 0.9686, 0.9451, 1.0);
 
     float v = smoothstep(.1 ,1. , vElevation*6.75);
 
     vec4 colorPink = mix(color1,color2,v)  - fbm(vUv*.125); 
-    vec4 colorYellow = mix(color3,color4,v)  - fbm(vUv*.125); 
+    vec4 colorBlue = mix(color3,color4,v)  - fbm(vUv*.125); 
+    vec4 colorYellow = mix(color5,color6,v)  - fbm(vUv*.125); 
+    vec4 colorPurple = mix(color7,color8,v)  - fbm(vUv*.125); 
+    vec4 colorLast = mix(color9,color10,v)  - fbm(vUv*.125); 
 
-    vec4 colorFinal = mix(colorPink , colorYellow , uColorChange);
+    // vec4 colorFinal;
+
+    // // Map `uColorChange` to multiple colors
+    // if (uColorChange < 0.25) {
+    //     colorFinal = colorBlue;
+    // } else if (uColorChange < 0.5) {
+    //     colorFinal = colorYellow;
+    // } else if (uColorChange < 0.75) {
+    //     colorFinal = colorPurple;
+    // } else {
+    //     colorFinal = colorLast;
+    // }
+    vec4 colorX =  mix(colorPink, colorBlue, smoothstep(0.0, 0.5, uColorChange));
+    vec4 colorY = mix(colorX, colorYellow, smoothstep(0.5, 1.0, uColorChange));
+    
+    vec4 colorFinal = mix( colorX , colorY , uColorChange);
+
+    // vec4 colorFinal = mix(colorPink , colorLast , uColorChange);
 
     gl_FragColor = colorFinal;
 }

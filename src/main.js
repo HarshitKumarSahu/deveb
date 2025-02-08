@@ -69,12 +69,14 @@ tl.to(mesh.position, {
 .to(material.uniforms.uColorChange, {
   value : 1,
   ease : 'power2.inOut'
+  
 }, "first")
 .to(".landing h1", {
   opacity:0,
 }, "first")
 .to(".who", {
   opacity:1,
+  ease: "power2.out"
 })
 
 let btn = document.querySelector(".who button");
@@ -93,6 +95,14 @@ btn.addEventListener("mouseleave", ()=> {
   })
 })
 
+// Color Animation Loop
+gsap.to(material.uniforms.uColorChange, {
+  value: 1,
+  duration: 3,
+  repeat: -1, // Infinite loop
+  yoyo: true, // Go back and forth
+  ease: "power2.inOut",
+});
 
 // Resize handler
 const handleResize = () => {
