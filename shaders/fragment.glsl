@@ -86,18 +86,6 @@ void main() {
     vec4 colorPurple = mix(color7,color8,v)  - fbm(vUv*.125); 
     vec4 colorLast = mix(color9,color10,v)  - fbm(vUv*.125); 
 
-    // vec4 colorFinal;
-
-    // // Map `uColorChange` to multiple colors
-    // if (uColorChange < 0.25) {
-    //     colorFinal = colorBlue;
-    // } else if (uColorChange < 0.5) {
-    //     colorFinal = colorYellow;
-    // } else if (uColorChange < 0.75) {
-    //     colorFinal = colorPurple;
-    // } else {
-    //     colorFinal = colorLast;
-    // }
     vec4 colorX =  mix(colorPink, colorBlue, smoothstep(0.0, 0.5, uColorChange));
     vec4 colorY = mix(colorX, colorYellow, smoothstep(0.5, 1.0, uColorChange));
     
