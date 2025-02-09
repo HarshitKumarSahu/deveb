@@ -4,6 +4,27 @@ import vertex from '../shaders/vertex.glsl';
 import fragment from '../shaders/fragment.glsl';
 import gsap from "gsap";
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import Lenis from 'lenis'
+
+const lenis = new Lenis({
+  duration: 1.5,  // Adjust scrolling smoothness
+  easing: (t) => 1 - Math.pow(1 - t, 3),  // Custom easing function
+  smoothWheel: true,
+  smoothTouch: true, // Enables touch support
+});
+
+function raf(time) {
+  lenis.raf(time);
+  requestAnimationFrame(raf);
+}
+
+// Ensure the loop runs only when the page is active
+requestAnimationFrame(raf);
+
+// Optional: Sync Lenis with GSAP (if using GSAP)
+gsap.ticker.add((time) => {
+  lenis.raf(time * 1000);
+});
 
 gsap.registerPlugin(ScrollTrigger);
 
