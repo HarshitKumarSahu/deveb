@@ -1,5 +1,4 @@
 import * as THREE from 'three';
-// import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import vertex from '../shaders/vertex.glsl';
 import fragment from '../shaders/fragment.glsl';
 import gsap from "gsap";
@@ -53,10 +52,6 @@ function setCameraPosition() {
     }
 }
 setCameraPosition();
-
-// Controls
-// const controls = new OrbitControls(camera, canvas);
-// controls.enableDamping = true;
 
 // Clock
 const clock = new THREE.Clock();
@@ -152,23 +147,6 @@ buttons.forEach((btn) => {
   });
 });
 
-
-// let btn = document.querySelector(".common");
-// btn.addEventListener("mouseenter", ()=> {
-//   gsap.to(btn, {
-//     background : "#000",
-//     color : "#f8f8f8",
-//     duration : 0.6
-//   })
-// })
-// btn.addEventListener("mouseleave", ()=> {
-//   gsap.to(btn, {
-//     background : "transparent",
-//     color : "#000",
-//     duration : 0.6
-//   })
-// })
-
 // Color Animation Loop
 gsap.to(material.uniforms.uColorChange, {
   value: 1,
@@ -182,10 +160,6 @@ gsap.to(material.uniforms.uColorChange, {
 const menu = document.querySelector(".menupg");
 const menuBar = document.querySelector(".cross");
 let isOpen = false;
-
-// gsap.to(menu , {
-//   x: "100vw"
-// })
 
 menuBar.addEventListener("click", () => {
     if (!isOpen) {
@@ -202,48 +176,6 @@ menuBar.addEventListener("click", () => {
     isOpen = !isOpen;
 });
 
-// const photos = gsap.utils.toArray(".images:not(:first-child)");
-// gsap.set(photos, { yPercent: 101 });
-
-// const animation = gsap.to(photos, {
-//   yPercent: 0,
-//   duration: 1,
-//   stagger: 1,
-//   ease: "power1.inOut" // Added easing for smoother animation
-// });
-
-// ScrollTrigger.create({
-//   trigger: ".gallery",
-//   start: "top top",
-//   end: "bottom bottom",
-//   pin: ".right",
-//   animation: animation,
-//   scrub: true,
-//   markers: true,
-//   anticipatePin: 1 // Added to improve pinning behavior
-// });
-
-// // Select all images except the first one
-// const photos = gsap.utils.toArray(".images:not(:first-child)");
-
-// // Set initial position of images (below their starting point)
-// gsap.set(photos, { yPercent: 101 });
-
-// gsap.to(photos, {
-//   yPercent: 0,
-//   stagger: 1,
-//   duration: 1, // Staggers each image to appear in sequence
-//   ease: "linear.inOut",
-//   scrollTrigger: {
-//     trigger: ".gallery",
-//     start: "top top",
-//     end: "bottom bottom",
-//     scrub: true, // Smooth scroll-based animation
-//     pin: ".right", // Keeps right section fixed while scrolling
-//     anticipatePin: 1, // Helps prevent flickering
-//     // markers: true,
-//   }
-// });
 
 // Select all images except the first one
 const photos = gsap.utils.toArray(".images:not(:first-child)");
@@ -320,9 +252,6 @@ gsap.to(".bar", 1.5, {
 gsap.from(".title", 1.5 , {
   delay:4,
   y:700,
-  // stagger : {
-  //   amount:0.5
-  // },
   ease : "power4.inOut"
 })
 gsap.from(mesh.position, 2, {
@@ -355,9 +284,6 @@ const animate = () => {
   
   // Update uniforms
   material.uniforms.uTime.value = elapsedTime;
-  
-  // Update controls
-  // controls.update();
   
   // Render
   renderer.render(scene, camera);

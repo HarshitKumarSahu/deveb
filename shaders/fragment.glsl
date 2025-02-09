@@ -91,7 +91,5 @@ void main() {
     
     vec4 colorFinal = mix( colorX , colorY , uColorChange);
 
-    // vec4 colorFinal = mix(colorPink , colorLast , uColorChange);
-
     gl_FragColor = colorFinal;
 }
