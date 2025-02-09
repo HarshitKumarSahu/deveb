@@ -386,7 +386,7 @@ body {
   
   .main {
     width: 100vw;
-    /* overflow-x: hidden; */
+    overflow: hidden;
   }
 
   .navbar {
@@ -461,6 +461,7 @@ body {
   
   .menu h4 {
     font-size: 1rem;
+    display: none;
   }
 
   .menu h1 {
@@ -476,7 +477,8 @@ body {
 
   .landing {
     width: 100vw;
-    height: 200vh;
+    height: 100vh;
+    /* overflow-: hidden; */
   }
   
   .sticky-container {
@@ -490,7 +492,7 @@ body {
   .title {
     position: absolute;
     font-weight: 500;
-    top: 50%;
+    top: 73%;
     left: 50%;
     transform: translate(-50%, -50%);
     white-space: nowrap;

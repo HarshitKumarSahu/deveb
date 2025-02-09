@@ -80,7 +80,22 @@ const material = new THREE.ShaderMaterial({
 
 // Mesh
 const mesh = new THREE.Mesh(geometry, material);
-mesh.position.y = -3.75; 
+
+function updateMeshPosition() {
+  if (window.innerWidth > 700) {
+    mesh.position.y = -3.75;
+  } else {
+    mesh.position.y = 2;
+    mesh.position.z = -10;
+  }
+}
+
+// Set initial position
+updateMeshPosition();
+
+// Update on window resize
+window.addEventListener("resize", updateMeshPosition);
+// mesh.position.y = -3.75; 
 scene.add(mesh);
 
 
