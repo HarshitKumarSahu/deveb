@@ -21,7 +21,17 @@ const camera = new THREE.PerspectiveCamera(
   0.1, 
   100
 );
-camera.position.z = 12;
+// camera.position.z = 12;
+function setCameraPosition() {
+    if (window.innerWidth < 500) {
+        camera.position.z = 22;
+    } else if (window.innerWidth < 700) {
+        camera.position.z = 20;
+    } else {
+        camera.position.z = 12;
+    }
+}
+setCameraPosition();
 
 // Controls
 // const controls = new OrbitControls(camera, canvas);
@@ -29,6 +39,8 @@ camera.position.z = 12;
 
 // Clock
 const clock = new THREE.Clock();
+
+
 
 // Geometry
 const geometry = new THREE.IcosahedronGeometry(3, 60, 60);
@@ -262,3 +274,5 @@ const animate = () => {
 };
 
 animate();
+
+
