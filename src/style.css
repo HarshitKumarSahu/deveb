@@ -26,10 +26,10 @@ body {
   background: #f8f8f8;
 }
 
-.who button {
+.common {
   padding : 1rem 2rem ;
   border-radius: 50px;
-  border: 1px solid #71717A;
+  /* border: 1px solid #71717A; */
 }
 h1, h2, h3, h4, h5, h6 {
   font-family: fontBeta;
@@ -81,4 +81,16 @@ body {
     to {
         transform: translateX(-40%);
     }
+}
+
+@media screen and (max-width : 700px) {
+  .left {
+    display: none;
+  }
+  .imgWrapper {
+    display: none;
+  }
+  /* .mobileView {
+    display: block;
+  } */
 }

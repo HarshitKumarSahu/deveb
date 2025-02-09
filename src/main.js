@@ -84,21 +84,42 @@ tl.to(mesh.position, {
 })
 
 
-let btn = document.querySelector(".who button");
-btn.addEventListener("mouseenter", ()=> {
-  gsap.to(btn, {
-    background : "#000",
-    color : "#f8f8f8",
-    duration : 0.6
-  })
-})
-btn.addEventListener("mouseleave", ()=> {
-  gsap.to(btn, {
-    background : "transparent",
-    color : "#000",
-    duration : 0.6
-  })
-})
+let buttons = document.querySelectorAll(".common");
+
+buttons.forEach((btn) => {
+  btn.addEventListener("mouseenter", () => {
+    gsap.to(btn, {
+      background: "#000",
+      color: "#f8f8f8",
+      duration: 0.6,
+    });
+  });
+
+  btn.addEventListener("mouseleave", () => {
+    gsap.to(btn, {
+      background: "transparent",
+      color: "#000",
+      duration: 0.6,
+    });
+  });
+});
+
+
+// let btn = document.querySelector(".common");
+// btn.addEventListener("mouseenter", ()=> {
+//   gsap.to(btn, {
+//     background : "#000",
+//     color : "#f8f8f8",
+//     duration : 0.6
+//   })
+// })
+// btn.addEventListener("mouseleave", ()=> {
+//   gsap.to(btn, {
+//     background : "transparent",
+//     color : "#000",
+//     duration : 0.6
+//   })
+// })
 
 // Color Animation Loop
 gsap.to(material.uniforms.uColorChange, {
@@ -131,6 +152,80 @@ menuBar.addEventListener("click", () => {
         gsap.to(".navA" , {display : "flex"})
     }
     isOpen = !isOpen;
+});
+
+// const photos = gsap.utils.toArray(".images:not(:first-child)");
+// gsap.set(photos, { yPercent: 101 });
+
+// const animation = gsap.to(photos, {
+//   yPercent: 0,
+//   duration: 1,
+//   stagger: 1,
+//   ease: "power1.inOut" // Added easing for smoother animation
+// });
+
+// ScrollTrigger.create({
+//   trigger: ".gallery",
+//   start: "top top",
+//   end: "bottom bottom",
+//   pin: ".right",
+//   animation: animation,
+//   scrub: true,
+//   markers: true,
+//   anticipatePin: 1 // Added to improve pinning behavior
+// });
+
+// // Select all images except the first one
+// const photos = gsap.utils.toArray(".images:not(:first-child)");
+
+// // Set initial position of images (below their starting point)
+// gsap.set(photos, { yPercent: 101 });
+
+// gsap.to(photos, {
+//   yPercent: 0,
+//   stagger: 1,
+//   duration: 1, // Staggers each image to appear in sequence
+//   ease: "linear.inOut",
+//   scrollTrigger: {
+//     trigger: ".gallery",
+//     start: "top top",
+//     end: "bottom bottom",
+//     scrub: true, // Smooth scroll-based animation
+//     pin: ".right", // Keeps right section fixed while scrolling
+//     anticipatePin: 1, // Helps prevent flickering
+//     // markers: true,
+//   }
+// });
+
+// Select all images except the first one
+const photos = gsap.utils.toArray(".images:not(:first-child)");
+const gallerySection = document.querySelector(".gallery"); // Target `.gallery` instead of `.right`
+
+// Define background colors corresponding to each image
+const bgColors = ["#D3D6F0", "#FAE1ED", "#FFEDE0", "#E0F0FF", "#FFEAE1"]; 
+
+// Set initial position of images (below their starting point)
+gsap.set(photos, { yPercent: 101 });
+
+gsap.to(photos, {
+  yPercent: 0,
+  stagger: 1,
+  duration: 1,
+  ease: "linear.inOut",
+  scrollTrigger: {
+    trigger: ".gallery",
+    start: "top top",
+    end: "bottom bottom",
+    scrub: true,
+    pin: ".right",
+    anticipatePin: 1,
+    // markers: true,
+    onUpdate: (self) => {
+      // Calculate the index of the current image
+      let index = Math.floor(self.progress * (bgColors.length));
+      gallerySection.style.backgroundColor = bgColors[index] || bgColors[bgColors.length - 1];
+    }
+  }
 });
 
 
