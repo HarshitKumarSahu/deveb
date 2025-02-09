@@ -229,6 +229,7 @@ gsap.to(photos, {
 });
 
 
+
 // Resize handler
 const handleResize = () => {
   const width = window.innerWidth;
